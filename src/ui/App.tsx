@@ -12,7 +12,7 @@ import TeamSelector from './components/TeamSelector';
 
 const { useState } = React;
 
-const App = () => {
+const App: React.FC<any> = () => {
   const [teams, setTeams] = useState();
 
   useAsyncDataEffect(() => getAllTeams(), {
@@ -22,7 +22,7 @@ const App = () => {
   if (!teams) return <Loading message="Loading teams" />;
   return (
     <Router>
-      <div className="flex flex-col sm:flex-row w-full h-full">
+      <div className="flex flex-col w-full h-full sm:flex-row">
         <TeamSelector teams={teams} />
         <Switch>
           <Route exact path="/">

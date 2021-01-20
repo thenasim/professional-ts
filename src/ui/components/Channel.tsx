@@ -6,12 +6,8 @@ import ChannelHeader from './Channel/Header';
 import ChannelMessage from './Channel/Message';
 import Loading from './Loading';
 
-
-const Channel = ({
-  channel,
-}) => {
-
-  const [messages, setMessages] = React.useState();
+const Channel: React.FC<any> = ({ channel }) => {
+  const [messages, setMessages] = React.useState<any[]>();
   useAsyncDataEffect(
     () => getChannelMessages(channel.teamId, channel.id),
     {
@@ -27,16 +23,16 @@ const Channel = ({
     'background-color: purple; color: white',
   );
   return (
-    <main className="flex-1 flex flex-col bg-white overflow-hidden channel">
+    <main className="flex flex-col flex-1 overflow-hidden bg-white channel">
       <ChannelHeader
         title={channel.name}
         description={channel.description}
       />
       <div
-        className="py-4 flex-1 overflow-y-scroll channel-messages-list"
+        className="flex-1 py-4 overflow-y-scroll channel-messages-list"
         role="list"
       >
-        {messages.map((m) => (
+        {messages.map((m: any) => (
           <ChannelMessage
             key={m.id}
             body={m.body}

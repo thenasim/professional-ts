@@ -3,14 +3,14 @@ import { Route, Switch } from 'react-router-dom';
 import SelectedChannel from './SelectedChannel';
 import TeamSidebar from './TeamSidebar';
 
-const Team  = ({ team }) => {
+const Team: React.FC<any> = ({ team }) => {
   console.log(
     `%c TEAM render: ${team.name}`,
     'background-color: blue; color: white',
   );
   const { channels } = team;
   return (
-    <div className="flex-1 flex">
+    <div className="flex flex-1">
       <TeamSidebar team={team} />
       <Switch>
         <Route exact path={`/team/${team.id}`}>

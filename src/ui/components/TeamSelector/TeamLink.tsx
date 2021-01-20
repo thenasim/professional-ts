@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 
-const TeamLink = ({ team }) => {
+const TeamLink: React.FC<any> = ({ team }) => {
   const match = useRouteMatch({
     path: `/team/${team.id}`,
     exact: false,
@@ -15,7 +15,7 @@ const TeamLink = ({ team }) => {
         (match ? 'opacity-100' : '')
       }
     >
-      <div className="bg-white h-12 w-12 flex items-center justify-center text-black text-2xl font-semibold rounded-lg mb-1 overflow-hidden">
+      <div className="flex items-center justify-center w-12 h-12 mb-1 overflow-hidden text-2xl font-semibold text-black bg-white rounded-lg">
         <img
           className="team-selector__team-logo"
           src={team.iconUrl}
