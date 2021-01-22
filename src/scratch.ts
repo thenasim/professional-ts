@@ -19,7 +19,7 @@ console.log(x.user.address?.city);
  * (2) Nullish Coalescing
  */
 class Foo {
-  #name; // ? truly private new in ts 3.8
+  #name: any; // ? truly private new in ts 3.8
   constructor(rawName?: string) {
     this.#name = rawName ?? '(no name)';
   }

@@ -2,6 +2,7 @@ import * as React from 'react';
 import {
   BrowserRouter as Router,
   Route,
+  match,
   Switch,
 } from 'react-router-dom';
 import { getAllTeams } from '../data/teams';
@@ -37,9 +38,11 @@ const App: React.FC<any> = () => {
           </Route>
           <Route
             path="/team/:teamId"
-            children={({ match }) => (
-              <SelectedTeam match={match} teams={teams} />
-            )}
+            children={({
+              match,
+            }: {
+              match: match<{ teamId: string }>;
+            }) => <SelectedTeam match={match} teams={teams} />}
           />
         </Switch>
       </div>
